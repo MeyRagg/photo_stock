@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Photo {
   final String id;
   final String? description;
@@ -11,10 +13,19 @@ class Photo {
     required this.user,
   });
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'description': description,
+      'urls': urls.toJson(),
+      'user': user.toJson(),
+    };
+  }
+
   factory Photo.fromJson(Map<String, dynamic> json) {
     return Photo(
       id: json['id'],
-      description: json['description'] ?? 'No Description',
+      description: json['description'],
       urls: Urls.fromJson(json['urls']),
       user: User.fromJson(json['user']),
     );
@@ -24,25 +35,31 @@ class Photo {
 class Urls {
   final String regular;
 
-  Urls({
-    required this.regular,
-  });
+  Urls({required this.regular});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'regular': regular,
+    };
+  }
 
   factory Urls.fromJson(Map<String, dynamic> json) {
     return Urls(
       regular: json['regular'],
     );
   }
-
-  get full => null;
 }
 
 class User {
-  final String? name;
+  final String name;
 
-  User({
-    this.name,
-  });
+  User({required this.name});
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+    };
+  }
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
