@@ -7,18 +7,19 @@ version: 1.0.0+1
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
+
 dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.4
-  flutter_webview_plugin: ^0.4.0
-  permission_handler: ^10.2.0
   cupertino_icons: ^1.0.6
   dio: ^5.0.0
   path_provider: ^2.0.11
   fluttertoast: ^8.0.9
-  flutter_downloader: ^1.11.8
-
+  shared_preferences: ^2.0.13
+  # gallery_saver: ^2.3.1
+  # image_gallery_saver: ^1.7.1
+  # permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:
